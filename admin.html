@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <script>
+        //проверка совпадения паролей и заполненности полей
+        function pswCheck() {
+            let valid;
+            valid = true;
+            if (document.inform.psw.value !== document.inform.pswtest.value) {
+                alert("Passwords is differ");
+                valid = false;
+            }
+            if (document.inform.psw.value == "" || document.inform.pswtest.value == "" || document.inform.pswtest.value == "") {
+                alert("Check password fields");
+                valid = false;
+            }
+            return valid
+        }
+    </script>
+</head>
+<body>
+<!--форма, отправляющая заполненные данные в add.php. Перед отправкой вызывается метод pswcheck для проверки полей-->
+<form  method="post" action="add.php" name="inform" onsubmit="return pswCheck()">
+    <fieldset align = 'center'>
+        <legend> Registration </legend>
+        <p><label for="name">Name </label><input type="text" name="name" id="name"></p>
+        <p><label for="psw">Password </label><input type="password" name="psw" id="psw"></p>
+        <p><label for="pswtest">Confirm password </label><input type="password" name="pswtest" id="pswtest"></p>
+        <div class="error"></div>
+        <p><input  type="submit" value="Sign up"></p>
+    </fieldset>
+</form>
+</body>
+</html>
+
